@@ -27,7 +27,7 @@ Please make sure that we are following the same naming and filing convention per
   * __Raw_data/__
     * f75_interim.csv
 * makefile
-* readme
+* readme.rmd
 * readme.md
 * gitignore
 

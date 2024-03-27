@@ -27,8 +27,6 @@ table1 <- data %>%
   bold_p(t=0.8) %>% 
   modify_caption("**Table 1. Patient Characteristics**")
 
-# Printing Table 1
-print(table1)
 
 # Save table1 as an RDS file
 saveRDS(
