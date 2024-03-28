@@ -15,3 +15,9 @@ t_test_result <- t.test(agemons ~ arm, data = filtered_f75, var.equal = FALSE)
 
 # Display the t-test results
 t_test_result
+
+# Save table1 as an RDS file
+saveRDS(
+  data, 
+  file = here::here("Output/03_table3.rds")
+)
