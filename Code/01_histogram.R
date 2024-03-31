@@ -7,6 +7,11 @@ agemons <- data$agemons
 
 png(file="Output/Histogram.png")
 
-hist(agemons, ylim = c(0, 200),xlim = c(0,200), col = 'violet')
+hist(agemons, 
+     main="Distribution of Age (in months)",
+     xlab="Age (in months)",
+     ylim = c(0, 200),
+     xlim = c(0,200),
+     col = 'blue')
 
 dev.off()
