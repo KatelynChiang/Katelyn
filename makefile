@@ -1,3 +1,7 @@
+# Make Histogram
+Histogram.png: Code/01_histogram.R Raw_data/f75_interim.csv
+	Rscript Code/01_histogram.R
+
 # Make Table 2
 table2.rds: Code/02_table2.R Raw_data/f75_interim.csv
 	Rscript Code/02_table2.R
