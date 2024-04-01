@@ -1,5 +1,5 @@
 # Load packages
-library(dplyr)
+library(tidyverse)
 library(rempsyc)
 
 # Read in data
@@ -9,7 +9,7 @@ f75 <- read.csv(abs_filepath, header=TRUE)
 
 # Filter the dataset based on conditions
 filtered_f75 <- f75 %>%
-  dplyr::filter(withdraw2 == "died", days_stable == 999) %>% 
+  dplyr::filter(withdraw2 == "died", days_stable == 999)
   
 
 # HTML-friendly T-test
