@@ -30,6 +30,6 @@ table3 <- nice_table(t.test.results,
 # Save table3 as an RDS file
 saveRDS(
   table3, 
-  file = here::here("Output/03_table3.rds")
+  file = here::here("Output/table3.rds")
 )
 

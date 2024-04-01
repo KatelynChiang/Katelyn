@@ -1,11 +1,11 @@
 Important Notes
 ================
 Group 2
-03-17-2024
 
-In order to avoid issues with merging, please **<ins>do not</ins>** push
-to the **main** branch. Please create/name your own branch and push to
-the GitHub repository. Please reach out if you have any questions!
+This project is aimed creating three tables and one figure for the f75_interim.csv data set.
+Code files included in this project will eventually render a markdown report with customization parameters for age.
+The makefile has rules to generate each of the outputs listed in the organizational structure below. Use 'make outputs' to generate all outputs:
+
 
 ## Organizational Structure
 
@@ -29,6 +29,5 @@ convention per the agreed upon structure below.
   - **Raw_data/**
     - f75_interim.csv
 - makefile
-- readme
-- readme.ht
-- gitignore
+- readme.md
+- .gitignore
