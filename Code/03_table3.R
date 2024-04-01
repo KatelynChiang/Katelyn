@@ -1,5 +1,6 @@
 # Load packages
 library(dplyr)
+library(rempsyc)
 
 # Read in data
 here::i_am("code/03_table3.R")
@@ -8,16 +9,27 @@ f75 <- read.csv(abs_filepath, header=TRUE)
 
 # Filter the dataset based on conditions
 filtered_f75 <- f75 %>%
-  dplyr::filter(withdraw2 == "died", days_stable == 999)
+  dplyr::filter(withdraw2 == "died", days_stable == 999) %>% 
+  
 
-# Perform t-test
-t_test_result <- t.test(agemons ~ arm, data = filtered_f75, var.equal = FALSE)
+# HTML-friendly T-test
+t.test.results <- nice_t_test(
+  data = filtered_f75,
+  response = "agemons",
+  group = "arm",
+  warning = FALSE
+)
 
-# Display the t-test results
-t_test_result
+# Formating agemons variable
+t.test.results <- t.test.results %>% mutate(`Dependent Variable` = "Age in Months")
 
-# Save table1 as an RDS file
+# Creating table3
+table3 <- nice_table(t.test.results,
+           title = "Table 3: T-test")
+
+# Save table3 as an RDS file
 saveRDS(
-  data, 
+  table3, 
   file = here::here("Output/03_table3.rds")
 )
+
