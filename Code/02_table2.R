@@ -4,8 +4,15 @@ here::i_am("Code/02_table2.R")
 absolute_path <- here::here('Raw_data/f75_interim.csv')
 data <- read.csv(absolute_path, header = TRUE)
 
+# Setting Config
+WHICH_CONFIG <- Sys.getenv("WHICH_CONFIG")
+config <- config::get(
+  config = WHICH_CONFIG
+)
+
 # Cleaning Data
 data_clean <- data %>%
+  filter(agemons > config$cutpoint) %>% 
   mutate(days_stable_clean = case_when(
     days_stable == 999 ~ NA,
     TRUE ~ days_stable)) %>%

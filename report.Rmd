@@ -1,0 +1,76 @@
+---
+title: "___Midterm Project: F75 Analysis___"
+author: "___Group 2___"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r, global-options, echo=FALSE}
+pacman::p_load(knitr, here, rempsyc, tidyverse)
+opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE
+)
+```
+
+
+```{r, config-setup}
+
+WHICH_CONFIG <- Sys.getenv("WHICH_CONFIG")
+config <- config::get(
+  config = WHICH_CONFIG
+)
+
+```
+## Descriptive Analysis
+
+### Table 1: Descriptive Statistics
+
+The table below shows basic sample characteristics of the children enrolled in this study
+stratified by those who received the modified F75 (intervention) and those who
+received the standard F75 (control). This is for children older than `r config$cutpoint` months.
+
+```{r, table1}
+here::i_am("report.Rmd")
+readRDS(
+  here::here("Output/table1.rds")
+)
+```
+
+### Figure 1: Age Distribution
+
+Below is a histogram showcasing the age (in months) distribution of children older than `r config$cutpoint` months.
+
+```{r, histogram}
+#| fig.align = "center",
+#| out.width = "600px"
+
+knitr::include_graphics(
+  here::here("Output/Histogram.png"))
+```
+
+## Outcome Analysis
+
+### Table 2: Outcomes by Treatment Arm
+
+We examined days to stabilization, weight at stabilization, MUAC at stabilization, and the proportion of children who died before stabilization. These averages and standard deviations are stratified by treatment and control with p-values to assess statistical significance of the findings. All children were over `r config$cutpoint` months old.
+
+```{r, table2}
+readRDS(
+  here::here("Output/table2.rds")
+  )
+```
+
+### Table 3: T-test
+
+We then examined only those children who died and a t-test was conducted to determine if there was a statistically significant age (in months) difference between the treatment (modified f75) and control (standard f75) groups. Please note that only children above `r config$cutpoint` months were included in this analysis.
+
+```{r, table3}
+
+table3 <- readRDS(
+  here::here("Output/table3.rds")
+)
+
+nice_table(table3,
+           title = "Table 3: T-test")
+```
+

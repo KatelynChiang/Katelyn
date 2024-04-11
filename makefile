@@ -1,3 +1,11 @@
+# Generate Report
+f75_report_config_${WHICH_CONFIG}.html: outputs render_report.R report.Rmd
+	Rscript render_report.R
+
+.PHONY: install
+install: install_packages.R
+	Rscript install_packages.R
+
 .PHONY: outputs
 outputs: table3.rds table2.rds Histogram.png table1.rds
 
@@ -20,4 +28,4 @@ table1.rds: Code/00_table1.R  Raw_data/f75_interim.csv
 # Cleaning outputs and renderings
 .PHONY: clean
 clean:
-	rm Output/* && rm -f *.html && rm -f .Rhistory
+	rm -f Output/* && rm -f *.html && rm -f .Rhistory

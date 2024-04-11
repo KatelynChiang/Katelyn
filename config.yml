@@ -1,3 +1,7 @@
 default:
   production: TRUE
-  cutpoint: 3
+  cutpoint: 0
+  
+experimental:
+  production: TRUE
+  cutpoint: 22
