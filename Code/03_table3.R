@@ -1,6 +1,9 @@
 # Load packages
 library(tidyverse)
 library(rempsyc)
+library(here)
+library(effectsize)
+pacman::p_load(flextable)
 
 # Read in data
 here::i_am("code/03_table3.R")
@@ -21,7 +24,7 @@ filtered_f75 <- f75 %>%
   
 
 # HTML-friendly T-test
-t.test.results <- nice_t_test(
+t.test.results <- rempsyc::nice_t_test(
   data = filtered_f75,
   response = "agemons",
   group = "arm",
