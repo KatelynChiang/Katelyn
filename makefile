@@ -3,8 +3,8 @@ f75_report_config_${WHICH_CONFIG}.html: outputs render_report.R report.Rmd
 	Rscript render_report.R
 
 .PHONY: install
-install: install_packages.R
-	Rscript install_packages.R
+install:
+	Rscript -e "renv::restore(prompt = FALSE)"
 
 .PHONY: outputs
 outputs: Output/table3.rds Output/table2.rds Output/Histogram.png Output/table1.rds 
